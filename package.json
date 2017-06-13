@@ -1,9 +1,10 @@
 {
   "name": "vue-interact",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Vue.js project",
   "author": "Kimura <joseduardo.kimura@gmail.com>",
   "private": false,
+  "main": "src/components/InteractPanel.vue",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
