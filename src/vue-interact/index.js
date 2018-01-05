@@ -2,6 +2,10 @@ import interact from 'interact.js';
 
 export default {
   props: {
+    draggableOpt: {
+      type: Object,
+      required: false,
+    },
     resizableOpt: {
       type: Object,
       required: false,
