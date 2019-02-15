@@ -1,6 +1,6 @@
 # vue-interact
 
-> A VueJS implementation of IteractJS[http://interactjs.io]
+> A VueJS implementation of [IteractJS](http://interactjs.io)
 
 ## Build Setup
 
@@ -28,3 +28,18 @@ new Vue({
   ...
 });
 ```
+
+## Back-To-Work Plan
+
+- [ ] Contribuition directives
+- [ ] Separate properly InteractPanel
+- [ ] Directive
+- [ ] Documentation
+- [ ] Change building process
+- [ ] CI Process
+
+> Any contribuition is welcome :arrow_up:
+
+## ©️ License
+
+[MIT](http://opensource.org/licenses/MIT)
