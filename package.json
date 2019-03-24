@@ -1,7 +1,7 @@
 {
   "name": "vue-interact",
-  "version": "0.0.2",
-  "description": "A Vue.js project",
+  "version": "0.0.3",
+  "description": "Interact.js component for Vue.js",
   "author": "Kimura <joseduardo.kimura@gmail.com>",
   "private": false,
   "main": "src/components/InteractPanel.vue",
