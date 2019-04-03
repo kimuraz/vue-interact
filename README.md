@@ -1,6 +1,6 @@
 # vue-interact
 
-> A VueJS implementation of [IteractJS](http://interactjs.io)
+> A VueJS implementation of [InteractJS](http://interactjs.io)
 
 ## Build Setup
 
