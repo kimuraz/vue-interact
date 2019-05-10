@@ -1,23 +1,24 @@
 import interact from 'interactjs';
+import CommonMixin from './CommonMixin';
 
 export default {
+  mixins: [CommonMixin],
   props: {
     draggingClass: {
       type: String,
       required: false,
       default: '.draggable',
     },
-    inertia: {
-      type: Boolean,
+    startAxis: {
+      type: String,
       required: false,
-      default: true,
+      default: 'xy',
     },
-    autoScroll: {
-      type: Boolean,
+    lockAxis: {
+      type: String,
       required: false,
-      default: true,
+      default: 'xy',
     },
-    lockAxis: {},
     modifiers: {
       type: Array,
       required: false,
