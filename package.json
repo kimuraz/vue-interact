@@ -7,8 +7,7 @@
   "main": "src/components/InteractPanel.vue",
   "license": "MIT",
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
+    "start:demo": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
     "docs:dev": "vuepress dev docs",
