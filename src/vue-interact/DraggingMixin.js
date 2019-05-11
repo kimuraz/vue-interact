@@ -7,7 +7,7 @@ export default {
     draggingClass: {
       type: String,
       required: false,
-      default: '.draggable',
+      default: 'draggable',
     },
     startAxis: {
       type: String,
@@ -32,28 +32,51 @@ export default {
     },
   },
   mounted() {
-    interact(this.draggingClass).draggable({
-      inertia: this.inertia,
-      modifiers: this.modifiers,
-      autoScroll: this.autoScroll,
-      onstart: this.onStart,
-      onmove: this.onMove,
-      onend: this.onEnd,
-      oninertiastart: this.onInertiaStart,
-    });
+    this.init();
   },
   methods: {
+    init() {
+      interact(`.${this.draggingClass}`).draggable({
+        inertia: this.inertia,
+        modifiers: this.modifiers,
+        autoScroll: this.autoScroll,
+        onstart: this.onStart,
+        onmove: this.onMove,
+        onend: this.onEnd,
+        oninertiastart: this.onInertiaStart,
+        startAxis: this.startAxis,
+        lockAxis: this.lockAxis,
+      });
+    },
     onStart(evt) {
       this.$emit('dragstart', evt);
     },
     onMove(evt) {
       this.$emit('dragmove', evt);
+
+      const { target } = evt;
+      const x = (parseFloat(target.getAttribute('data-x')) || 0) + evt.dx,
+            y = (parseFloat(target.getAttribute('data-y')) || 0) + evt.dy;
+
+      target.style.webkitTransform = target.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
     },
     onEnd(evt) {
       this.$emit('dragend', evt);
     },
     onInertiaStart(evt) {
       this.$emit('draginertiastart', evt);
+    },
+  },
+  watch: {
+    lockAxis: {
+      deep: true,
+      handler() {
+        this.init();
+      },
     },
   },
 };
