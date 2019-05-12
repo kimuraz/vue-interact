@@ -1,8 +1,12 @@
 module.exports = {
-  base: 'vue-interact',
   serviceWorker: false,
-  title: 'Vue Interact',
-  description: 'A VueJS wrapper for InteractJS',
+  locales: {
+    '/': {
+      lang: 'en-US',
+      title: 'Vue Interact',
+      description: 'A VueJS wrapper for InteractJS',
+    },
+  },
   themeConfig: {
     repo: 'kimuraz/vue-interact',
     docsDir: 'docs',
