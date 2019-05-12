@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import { DraggingMixin } from '../vue-interact';
+import { DraggingMixin, ResizingMixin } from '../vue-interact';
 
 export default {
   name: 'interactPanel',
-  mixins: [DraggingMixin],
+  mixins: [DraggingMixin, ResizingMixin],
 };
 </script>
