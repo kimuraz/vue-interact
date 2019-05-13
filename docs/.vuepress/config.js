@@ -20,8 +20,12 @@ module.exports = {
             text: 'Mixins',
             items: [
               {
-                text: 'DraggableMixin',
-                link: '/mixins/draggable',
+                text: 'DraggingMixin',
+                link: '/mixins/dragging',
+              },
+              {
+                text: 'ResizingMixin',
+                link: '/mixins/resizing',
               },
             ],
           },
@@ -34,7 +38,8 @@ module.exports = {
             collapsable: false,
             children: [
               '/mixins/common',
-              '/mixins/draggable',
+              '/mixins/dragging',
+              '/mixins/resizing',
             ],
           },
         ],
