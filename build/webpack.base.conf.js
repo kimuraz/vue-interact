@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './demo/main.js'
+    app: './src/vue-interact/index.js'
   },
   output: {
     path: config.build.assetsRoot,

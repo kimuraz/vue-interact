@@ -13,9 +13,25 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
+  build:
+    docker:
+      - image: circleci/node:8.9.4
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: yarn install
+      - run: yarn build
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
 workflows:
   version: 2
   test:
     jobs:
       - lint
+  build:
+    jobs:
+      - build
