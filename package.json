@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "interactjs": "^1.4.1",
-    "vue": "^2.3.3"
+    "vue": "^2.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
