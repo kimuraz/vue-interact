@@ -9,38 +9,20 @@
 ## Build Setup
 
 ``` bash
-# install using NPM
 npm install vue-interact --save
+
+yarn add vue-interact
 ```
 
-## Using It
-
-You can import either the vue-interact JS file:
-```
-import VueInteract from 'vue-interact';
-```
-Or use the InteractPanel component in your project:
-```
-import InteractPanel from 'vue-interact';
-
-new Vue({
-  ...
-  components: {
-    iteractPanel: InteractPanel,
-    ...
-  },
-  ...
-});
-```
 
 ## Back-To-Work Plan
 
 - [ ] Contribuition directives
-- [ ] Separate properly InteractPanel
+- [X] Separate properly InteractPanel
 - [ ] Directive
 - [ ] Documentation
-- [ ] Change building process
-- [ ] CI Process
+- [X] Change building process
+- [X] CI Process
 
 > Any contribuition is welcome :arrow_up:
 
