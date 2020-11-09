@@ -12,3 +12,19 @@ The version is currently using InteractJS `1.4.1`
 $ yarn add vue-interact
 
 ```
+
+## For using directives
+
+Install it as a plugin:
+
+```
+import VueInteract from 'vue-interact';
+
+Vue.use(VueInteract);
+```
+
+In order to use the default css classes from vue-interact make sure to also import the css file:
+
+```
+import 'vue-interact/vue-interact-default.css';
+```
