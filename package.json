@@ -14,7 +14,7 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "interactjs": "^1.4.9",
+    "interactjs": "^1.10.0",
     "vue": "^2.6"
   },
   "devDependencies": {
