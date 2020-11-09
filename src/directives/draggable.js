@@ -4,8 +4,6 @@ const bind = (el, binding, vnode) => {
   const { arg, value } = binding;
   const className = arg || 'vue-interact-draggable';
 
-  console.log(arg);
-
   el.classList.add(className);
 
   const pos = { x: 0, y: 0 };
@@ -20,12 +18,13 @@ const bind = (el, binding, vnode) => {
           pos.x += event.dx;
           pos.y += event.dy;
 
+          // eslint-disable-next-line no-param-reassign
           el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
           vnode.context.$emit('move', event);
         },
       },
     },
-    value
+    value,
   );
 
   interact(`.${className}`).draggable(options);

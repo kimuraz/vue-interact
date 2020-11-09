@@ -9,11 +9,12 @@ export { ResizingMixin };
 const VueInteract = {
   DraggingMixin,
   ResizingMixin,
-  install: Vue => {
+  install: (Vue) => {
     if (Vue.vueInteractInstalled) {
       return;
     }
 
+    // eslint-disable-next-line no-param-reassign
     Vue.vueInteractInstalled = true;
 
     Vue.directive('draggable', draggable);
