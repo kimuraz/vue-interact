@@ -4,6 +4,8 @@ const bind = (el, binding, vnode) => {
   const { arg, value } = binding;
   const className = arg || 'vue-interact-draggable';
 
+  console.log(arg);
+
   el.classList.add(className);
 
   const pos = { x: 0, y: 0 };
@@ -17,8 +19,6 @@ const bind = (el, binding, vnode) => {
         move(event) {
           pos.x += event.dx;
           pos.y += event.dy;
-
-          console.log(pos);
 
           el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
           vnode.context.$emit('move', event);
