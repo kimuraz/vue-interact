@@ -2,12 +2,12 @@
   <div class="vue-interact">
     <h2>Vue Interact Demo</h2>
 
-    <InteractPanel :class="['resizable', 'draggable']">
+    <InteractPanel :class="['square', 'resizable', 'draggable']">
       InteractPanel (I have all the mixins!)
     </InteractPanel>
 
 
-    <DraggablePanel :lockAxis="lockDrag" class="draggable">
+    <DraggablePanel :lockAxis="lockDrag" class="square draggable">
       <p>Dragging Panel</p>
       <p>Lock Axis control</p>
       <div class="lock-drag">
@@ -25,6 +25,10 @@
         {{ pos }}
       </div>
     </ResizablePanel>
+
+    <div v-draggable class="square">
+      I use the draggable directive!
+    </div>
   </div>
 </template>
 
@@ -61,12 +65,15 @@ export default {
   height: 100vh;
 }
 
-.draggable,
-.resizable {
+.square {
   background-color: #2299ee;
-  border-radius: 2px;
   width: 200px;
   height: 200px;
+}
+
+.draggable,
+.resizable {
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
