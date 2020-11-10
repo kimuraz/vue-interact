@@ -13,7 +13,7 @@ $ yarn add vue-interact
 
 ```
 
-## For using directives
+## Using directives
 
 Install it as a plugin:
 
@@ -26,5 +26,5 @@ Vue.use(VueInteract);
 In order to use the default css classes from vue-interact make sure to also import the css file:
 
 ```
-import 'vue-interact/vue-interact-default.css';
+import 'vue-interact/dist/vue-interact.css';
 ```
