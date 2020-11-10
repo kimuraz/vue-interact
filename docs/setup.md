@@ -2,7 +2,7 @@
 
 This plugin is compatible with `VueJS >= 2.0.0`
 
-The version is currently using InteractJS `1.4.1`
+The version is currently using InteractJS `1.10`
 
 
 ## Adding to your project
