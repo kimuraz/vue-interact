@@ -29,6 +29,15 @@ module.exports = {
               },
             ],
           },
+          {
+            text: 'Directives',
+            items: [
+              {
+                text: 'v-draggable',
+                link: '/directives/draggable',
+              },
+            ],
+          },
         ],
         sidebar: [
           '/introduction',
@@ -42,8 +51,13 @@ module.exports = {
               '/mixins/resizing',
             ],
           },
+          {
+            title: 'Directives',
+            collapsable: false,
+            children: ['/directives/draggable'],
+          },
         ],
       },
     },
   },
-}
+};
