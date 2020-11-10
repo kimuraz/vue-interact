@@ -202,29 +202,63 @@ const bind = (el, binding, vnode) => {
 
   const pos = { x: 0, y: 0 };
 
-  const options = Object.assign(
-    {
-      listeners: {
-        start(event) {
-          vnode.context.$emit('start', event);
-        },
-        move(event) {
-          pos.x += event.dx;
-          pos.y += event.dy;
+  const options = {
+    listeners: {
+      start(event) {
+        vnode.context.$emit('start', event);
+      },
+      move(event) {
+        pos.x += event.dx;
+        pos.y += event.dy;
 
-          // eslint-disable-next-line no-param-reassign
-          el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
-          vnode.context.$emit('move', event);
-        },
+        // eslint-disable-next-line no-param-reassign
+        el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+        vnode.context.$emit('move', event);
       },
     },
-    value,
-  );
+    ...value,
+  };
 
-  interact(`.${className}`).draggable(options);
+  interact(el).draggable(options);
 };
 
 var draggable = { bind };
+
+const bind$1 = (el, binding, vnode) => {
+  const { arg, value, modifiers } = binding;
+  const className = arg || 'vue-interact-rz';
+  const { top, bottom, left, right } = modifiers;
+
+  el.classList.add(className);
+
+  const options = {
+    edges: {
+      top: !!top,
+      bottom: !!bottom,
+      left: !!left,
+      right: !!right,
+    },
+    ...value,
+  };
+
+  interact(el)
+    .resizable(options)
+    .on('resizemove', event => {
+      let { x, y } = el.dataset;
+
+      x = parseFloat(x) || 0;
+      y = parseFloat(y) || 0;
+
+      el.style.width = `${event.rect.width}px`;
+      el.style.height = `${event.rect.height}px`;
+
+      el.dataset.x = x;
+      el.dataset.y = y;
+      vnode.context.$emit('resize', event);
+    });
+};
+
+var resizable = { bind: bind$1 };
 
 const VueInteract = {
   DraggingMixin,
@@ -238,6 +272,7 @@ const VueInteract = {
     Vue.vueInteractInstalled = true;
 
     Vue.directive('draggable', draggable);
+    Vue.directive('resizable', resizable);
   },
 };
 

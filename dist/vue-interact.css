@@ -2,3 +2,9 @@
   touch-action: none;
   user-select: none;
 }
+
+.vue-interact-rz {
+  box-sizing: border-box;
+  touch-action: none;
+  user-select: none;
+}
