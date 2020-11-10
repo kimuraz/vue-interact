@@ -1,7 +1,7 @@
-import DraggingMixin from './DraggingMixin';
-import ResizingMixin from './ResizingMixin';
+import DraggingMixin from './mixins/DraggingMixin';
+import ResizingMixin from './mixins/ResizingMixin';
 
-import draggable from '../directives/draggable';
+import draggable from './directives/draggable';
 
 export { DraggingMixin };
 export { ResizingMixin };
