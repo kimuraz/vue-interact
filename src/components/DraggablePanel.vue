@@ -1,14 +1,14 @@
 <template>
   <div class="draggable">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
-import { DraggingMixin } from '../vue-interact';
+import { DraggingMixin } from '../index';
 
 export default {
-  name: 'draggablePanel',
+  name: 'DraggablePanel',
   mixins: [DraggingMixin],
 };
 </script>

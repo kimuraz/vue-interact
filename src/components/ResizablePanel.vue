@@ -1,14 +1,14 @@
 <template>
   <div class="resizable">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
-import { ResizingMixin } from '../vue-interact';
+import { ResizingMixin } from '../index';
 
 export default {
-  name: 'resizablePanel',
+  name: 'ResizablePanel',
   mixins: [ResizingMixin],
 };
 </script>

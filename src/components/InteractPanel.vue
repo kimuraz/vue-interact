@@ -1,14 +1,14 @@
 <template>
   <div>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
-import { DraggingMixin, ResizingMixin } from '../vue-interact';
+import { DraggingMixin, ResizingMixin } from '../index';
 
 export default {
-  name: 'interactPanel',
+  name: 'InteractPanel',
   mixins: [DraggingMixin, ResizingMixin],
 };
 </script>
