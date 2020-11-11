@@ -25,7 +25,7 @@ const bind = (el, binding, vnode) => {
     ...value,
   };
 
-  interact(`.${className}`).draggable(options);
+  interact(el).draggable(options);
 };
 
 export default { bind };
