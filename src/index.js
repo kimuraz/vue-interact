@@ -15,7 +15,6 @@ const VueInteract = {
       return;
     }
 
-    // eslint-disable-next-line no-param-reassign
     Vue.vueInteractInstalled = true;
 
     Vue.directive('draggable', draggable);
