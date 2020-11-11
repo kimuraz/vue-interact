@@ -7,8 +7,6 @@ const bind = (el, binding, vnode) => {
 
   el.classList.add(className);
 
-  const pos = { x: 0, y: 0 };
-
   const options = {
     edges: {
       top: !!top,

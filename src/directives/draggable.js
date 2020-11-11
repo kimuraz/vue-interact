@@ -17,7 +17,6 @@ const bind = (el, binding, vnode) => {
         pos.x += event.dx;
         pos.y += event.dy;
 
-        // eslint-disable-next-line no-param-reassign
         el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
         vnode.context.$emit('move', event);
       },
