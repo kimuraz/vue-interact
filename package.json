@@ -5,21 +5,24 @@
   "author": "Kimura <joseduardo.kimura@gmail.com>",
   "private": false,
   "main": "dist/vue-interact.min.js",
+  "types": "vue-interact.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "node build.js",
     "lint": "eslint --ext .js,.vue src",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "test": "jest"
   },
   "dependencies": {
     "interactjs": "^1.10.17"
   },
   "peerDependencies": {
-    "vue": "^2.6",
-    "interactjs": "^1.10.17"
+    "interactjs": "^1.10.17",
+    "vue": "^2.6"
   },
   "devDependencies": {
+    "@interactjs/types": "^1.10.17",
     "@tsconfig/recommended": "^1.0.1",
     "esbuild": "^0.15.11",
     "eslint": "^8.25.0",
