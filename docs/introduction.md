@@ -2,6 +2,6 @@
 
 Vue-Interact is a [VueJS](https://vuejs.org) wrapper for [InteractJS](https://interactjs.io).
 
-It offers you `PanelComponents` and `Mixins` that implements the interactions enabled by InteractJS.
+It offers you `Mixins` and `Directives` that implements the interactions enabled by InteractJS.
 
 
