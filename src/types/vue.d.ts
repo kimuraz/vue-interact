@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Vue from 'vue';
 
 declare global {
@@ -6,3 +7,5 @@ declare global {
         $interact: any | null;
     }
 }
+
+/* eslint-disable */

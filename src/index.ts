@@ -9,7 +9,7 @@ import resizable from './directives/resizable';
 export { DraggingMixin };
 export { ResizingMixin };
 
-const VueInteract: any = {
+const VueInteract = {
   install: (Vue: Vue) => {
     if (Vue.vueInteractInstalled) {
       return;

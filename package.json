@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "node build.js",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .ts src",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "test": "jest"
@@ -24,6 +24,8 @@
   "devDependencies": {
     "@interactjs/types": "^1.10.17",
     "@tsconfig/recommended": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
     "esbuild": "^0.15.11",
     "eslint": "^8.25.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -33,7 +35,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-vue": "^9.6.0",
     "typescript": "^4.8.4",
-    "vuepress": "^1.5.0"
+    "vuepress": "^1.9.7"
   },
   "engines": {
     "node": ">= 14.0.0",
