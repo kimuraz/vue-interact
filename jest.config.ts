@@ -1,14 +1,10 @@
 module.exports = {
   verbose: true,
   clearMocks: true,
-  moduleDirectories: ['node_modules', 'src'],
-  globals: {
-    'ts-jest': {
-        tsconfig: 'tsconfig.json',
-    },
-  },
+  moduleDirectories: ['node_modules'],
+  roots: ["<rootDir>/src"],
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
+    "^.+\\.(ts|tsx)$": ["ts-jest", { tsconfig: "tsconfig.json" }]
   },
   transformIgnorePatterns: [
     "<rootDir>/node_modules/(?!@foo)"

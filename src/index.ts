@@ -6,11 +6,14 @@ export interface IVueInteractOptions {
   installGlobalProperty?: boolean;
 }
 
-export const VueInteract : Plugin= {
+export const VueInteract : Plugin = {
   install: (app: App, options: IVueInteractOptions = {
     installCompositionInject: true,
     installGlobalProperty: true,
   }) => {
+    if (!app) {
+      throw new Error('VueInteract.install requires an app instance');
+    }
     if (options.installCompositionInject) {
       app.provide('interact', interact);
     }
