@@ -1,25 +1,23 @@
-import { Directive } from 'vue';
+import { App, Plugin } from 'vue';
 import interact from 'interactjs';
-import DraggingMixin from './mixins/DraggingMixin';
-import ResizingMixin from './mixins/ResizingMixin';
 
-import draggable from './directives/draggable';
-import resizable from './directives/resizable';
+export interface IVueInteractOptions {
+  installCompositionInject?: boolean;
+  installGlobalProperty?: boolean;
+}
 
-export { DraggingMixin };
-export { ResizingMixin };
-
-const VueInteract = {
-  install: (Vue: Vue) => {
-    if (Vue.vueInteractInstalled) {
-      return;
+export const VueInteract : Plugin= {
+  install: (app: App, options: IVueInteractOptions = {
+    installCompositionInject: true,
+    installGlobalProperty: true,
+  }) => {
+    if (options.installCompositionInject) {
+      app.provide('interact', interact);
     }
 
-    Vue.vueInteractInstalled = true;
-    Vue.$interact = interact;
-
-    Vue.directive('draggable', draggable as Directive);
-    Vue.directive('resizable', resizable as Directive);
+    if (options.installGlobalProperty) {
+        app.config.globalProperties.$interact = interact;
+    }
   },
 };
 
