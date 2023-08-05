@@ -1,20 +1,21 @@
 import { App, Plugin } from 'vue';
 import interact from 'interactjs';
+import useDraggable from "./composables/useDraggable";
 
 export interface IVueInteractOptions {
-  installCompositionInject?: boolean;
+  installInject?: boolean;
   installGlobalProperty?: boolean;
 }
 
 export const VueInteract : Plugin = {
   install: (app: App, options: IVueInteractOptions = {
-    installCompositionInject: true,
+    installInject: true,
     installGlobalProperty: true,
   }) => {
     if (!app) {
       throw new Error('VueInteract.install requires an app instance');
     }
-    if (options.installCompositionInject) {
+    if (options.installInject) {
       app.provide('interact', interact);
     }
 
@@ -24,4 +25,5 @@ export const VueInteract : Plugin = {
   },
 };
 
+export { useDraggable };
 export default VueInteract;

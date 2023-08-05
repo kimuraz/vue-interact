@@ -13,7 +13,7 @@ describe('VueInteract', () => {
     const app = createApp({});
     app.provide = jest.fn();
     app.use(VueInteract, {
-      installCompositionInject: true,
+      installInject: true,
       installGlobalProperty: true,
     });
     expect(app.provide).toHaveBeenCalledWith('interact', expect.anything());
@@ -23,7 +23,7 @@ describe('VueInteract', () => {
     const app = createApp({});
     app.config.globalProperties = {};
     app.use(VueInteract, {
-      installCompositionInject: true,
+      installInject: true,
       installGlobalProperty: true,
     });
     expect(app.config.globalProperties.$interact).toBeDefined();
@@ -33,7 +33,7 @@ describe('VueInteract', () => {
     const app = createApp({});
     app.config.globalProperties = {};
     app.use(VueInteract, {
-      installCompositionInject: true,
+      installInject: true,
       installGlobalProperty: false,
     });
     expect(app.config.globalProperties.$interact).toBeUndefined();
@@ -43,7 +43,7 @@ describe('VueInteract', () => {
     const app = createApp({});
     app.provide = jest.fn();
     app.use(VueInteract, {
-      installCompositionInject: false,
+      installInject: false,
       installGlobalProperty: false,
     });
     expect(app.provide).not.toHaveBeenCalled();
