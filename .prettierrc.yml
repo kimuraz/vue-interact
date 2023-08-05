@@ -1,4 +1,4 @@
 singleQuote: true
-semit: true
-tabWidth: 2
+semi: true
+tabWidth: 4
 trailingComma: true
