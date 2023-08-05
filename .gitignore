@@ -5,3 +5,5 @@ yarn-debug.log*
 yarn-error.log*
 *.swp
 .idea/
+.temp/
+.cache/
