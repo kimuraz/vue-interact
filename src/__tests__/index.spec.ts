@@ -19,7 +19,7 @@ describe('VueInteract', () => {
     expect(app.provide).toHaveBeenCalledWith('interact', expect.anything());
   });
 
-  it('should regiter global property', () => {
+  it('should register global property', () => {
     const app = createApp({});
     app.config.globalProperties = {};
     app.use(VueInteract, {
@@ -29,7 +29,7 @@ describe('VueInteract', () => {
     expect(app.config.globalProperties.$interact).toBeDefined();
   });
 
-  it('should not regiter global property', () => {
+  it('should not register global property', () => {
     const app = createApp({});
     app.config.globalProperties = {};
     app.use(VueInteract, {
@@ -47,5 +47,15 @@ describe('VueInteract', () => {
       installGlobalProperty: false,
     });
     expect(app.provide).not.toHaveBeenCalled();
+  });
+
+  it('should throw an error if no app is provided', () => {
+    try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore-next-line
+      VueInteract.install(undefined as any)
+    } catch (e) {
+      expect(e).toEqual(new Error('VueInteract.install requires an app instance'));
+    }
   });
 });
