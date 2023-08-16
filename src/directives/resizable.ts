@@ -3,7 +3,9 @@ import interact from 'interactjs';
 const bind = (el, binding, vnode) => {
   const { arg, value, modifiers } = binding;
   const className = arg || 'vue-interact-rz';
-  const { top, bottom, left, right } = modifiers;
+  const {
+    top, bottom, left, right,
+  } = modifiers;
 
   el.classList.add(className);
 

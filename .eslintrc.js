@@ -2,33 +2,19 @@
 
 module.exports = {
   root: true,
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
   env: {
     browser: true,
   },
-  extends: ['airbnb-base', 'plugin:vue/recommended'],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
   // required to lint *.vue files
-  plugins: ['html'],
+  plugins: ['@typescript-eslint', 'prettier'],
   // add your custom rules here
   rules: {
-    // don't require .vue extension when importing
-    'import/extensions': [
-      'error',
-      'always',
-      {
-        js: 'never',
-        vue: 'never',
-      },
-    ],
-    // allow optionalDependencies
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        optionalDependencies: ['test/unit/index.js'],
-      },
-    ],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'arrow-parens': 'off',
