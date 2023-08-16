@@ -1,18 +1,22 @@
 import interact from "interactjs";
-import Interact, { Options as InteractOptions } from "@interactjs/types/index";
+import Interact from "@interactjs/types/index";
 
 import {computed, ref} from "vue";
+import { DraggableOptions } from '@interactjs/actions/drag/plugin';
 
 export interface IPosition {
     x: number;
     y: number;
 }
 
-const useDraggable = (el: HTMLElement, interactOptions: InteractOptions) => {
+const useDraggable = (el: HTMLElement, interactOptions: DraggableOptions) => {
+  if (!el) {
+    throw new Error('useDraggable requires an element to interact with');
+  }
   const elRef = ref<HTMLElement>(el);
   const isDragging = ref<boolean>(false);
   const position = ref<IPosition>({ x: 0, y: 0 });
-  const draggableOptions = computed<InteractOptions>({
+  const draggableOptions = computed<DraggableOptions>({
     get: () => ({
       listeners: {
         start: onDragStart,

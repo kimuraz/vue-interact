@@ -1,6 +1,5 @@
 import interact from 'interactjs';
 import { useDraggable } from '../../index';
-import drag from '@interactjs/actions/drag/plugin';
 
 jest.mock('interactjs', () => ({
   __esModule: true,
@@ -23,6 +22,16 @@ describe('useDraggable', () => {
   });
   it('should be defined', () => {
     expect(useDraggable).toBeDefined();
+  });
+
+  it('should throw an error if no element is provided', () => {
+    try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore-next-line
+      useDraggable(null as any, {});
+    } catch (e) {
+      expect(e).toEqual(new Error('useDraggable requires an element to interact with'));
+    }
   });
 
   it('should return the expected properties', () => {
