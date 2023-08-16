@@ -8,7 +8,6 @@ export interface IPosition {
     x: number;
     y: number;
 }
-
 const useDraggable = (el: HTMLElement, interactOptions: DraggableOptions) => {
   if (!el) {
     throw new Error('useDraggable requires an element to interact with');
@@ -31,7 +30,7 @@ const useDraggable = (el: HTMLElement, interactOptions: DraggableOptions) => {
     }
   });
 
-  const onDragStart = (event: Interact.InteractEvent) => {
+  const onDragStart = (event: Interact.DragEvent) => {
     isDragging.value = true;
     position.value = {
       x: event.pageX,
@@ -39,7 +38,7 @@ const useDraggable = (el: HTMLElement, interactOptions: DraggableOptions) => {
     };
   }
 
-    const onDragMove = (event: Interact.InteractEvent) => {
+    const onDragMove = (event: Interact.DragEvent) => {
       position.value = {
         x: event.dx,
         y: event.dy,
@@ -47,7 +46,7 @@ const useDraggable = (el: HTMLElement, interactOptions: DraggableOptions) => {
       elRef.value.style.transform = `translate(${position.value.x}px, ${position.value.y}px)`;
     };
 
-    const onDragEnd = (event: Interact.InteractEvent) => {
+    const onDragEnd = (event: Interact.DragEvent) => {
       isDragging.value = false;
       position.value = {
           x: event.dx,
