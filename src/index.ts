@@ -1,26 +1,30 @@
-import { Directive } from 'vue';
+import { App, Plugin } from 'vue';
 import interact from 'interactjs';
-import DraggingMixin from './mixins/DraggingMixin';
-import ResizingMixin from './mixins/ResizingMixin';
+import useDraggable from "./composables/useDraggable";
+import useResizable from "./composables/useResizable";
 
-import draggable from './directives/draggable';
-import resizable from './directives/resizable';
+export interface IVueInteractOptions {
+  installInject?: boolean;
+  installGlobalProperty?: boolean;
+}
 
-export { DraggingMixin };
-export { ResizingMixin };
-
-const VueInteract = {
-  install: (Vue: Vue) => {
-    if (Vue.vueInteractInstalled) {
-      return;
+export const VueInteract : Plugin = {
+  install: (app: App, options: IVueInteractOptions = {
+    installInject: true,
+    installGlobalProperty: true,
+  }) => {
+    if (!app) {
+      throw new Error('VueInteract.install requires an app instance');
+    }
+    if (options.installInject) {
+      app.provide('interact', interact);
     }
 
-    Vue.vueInteractInstalled = true;
-    Vue.$interact = interact;
-
-    Vue.directive('draggable', draggable as Directive);
-    Vue.directive('resizable', resizable as Directive);
+    if (options.installGlobalProperty) {
+        app.config.globalProperties.$interact = interact;
+    }
   },
 };
 
+export { useDraggable, useResizable };
 export default VueInteract;

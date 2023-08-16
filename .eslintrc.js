@@ -5,13 +5,14 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: [ 
+  extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
   ],
   // required to lint *.vue files
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'prettier'],
   // add your custom rules here
   rules: {
     // allow debugger during development

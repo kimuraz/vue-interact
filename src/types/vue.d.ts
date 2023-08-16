@@ -1,10 +1,9 @@
 /* eslint-disable */
-import Vue from 'vue';
+import Interact from '@interactjs/types/index';
 
 declare global {
     interface Vue {
-        vueInteractInstalled?: boolean;
-        $interact: any | null;
+        $interact: Interact.Static;
     }
 }
 
