@@ -1,6 +1,7 @@
 import { App, Plugin } from 'vue';
 import interact from 'interactjs';
 import useDraggable from "./composables/useDraggable";
+import useResizable from "./composables/useResizable";
 
 export interface IVueInteractOptions {
   installInject?: boolean;
@@ -25,5 +26,5 @@ export const VueInteract : Plugin = {
   },
 };
 
-export { useDraggable };
+export { useDraggable, useResizable };
 export default VueInteract;
