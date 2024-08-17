@@ -5,9 +5,17 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "allowJs": true,
-    "typeRoots": ["node_modules/@types", "src/types"],
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
   },
-  // FIXME: When re-writing other parts, configure this to be broader
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "src/__tests__/*.spec.ts", "dist/**/*"],
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "src/__tests__/*.spec.ts",
+    "dist/**/*"
+  ],
 }

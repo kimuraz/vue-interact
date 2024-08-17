@@ -1,6 +1,16 @@
 import interact from 'interactjs';
 
-const bind = (el, binding, vnode) => {
+import { InteractEvent } from '@interactjs/types';
+import type { DragDirectiveBinding } from '@vue-interact/types';
+import type { VNode } from 'vue';
+
+/**
+* Vue directive to make an element draggable.
+* @param {HTMLElement} el
+* @param {binding: DragDirectiveBinding} A class name to add to the element default is 'vue-interact-draggable'
+* @param {VNode} vnode
+**/
+const bind = (el: HTMLElement, binding: DragDirectiveBinding, vnode: VNode) => {
   const { arg, value } = binding;
   const className = arg || 'vue-interact-draggable';
 
@@ -10,16 +20,16 @@ const bind = (el, binding, vnode) => {
 
   const options = {
     listeners: {
-      start(event) {
-        vnode.context.$emit('start', event);
+      start(event: InteractEvent) {
+        el.dispatchEvent(new CustomEvent('dragstart', { detail: event }));
       },
-      move(event) {
+      move(event: InteractEvent) {
         pos.x += event.dx;
         pos.y += event.dy;
 
         el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
-        vnode.context.$emit('move', event);
       },
+
     },
     ...value,
   };
