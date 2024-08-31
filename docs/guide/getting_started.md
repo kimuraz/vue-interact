@@ -4,13 +4,10 @@ This plugin is compatible with `VueJS >= 3`
 
 The version is currently using InteractJS `1.10.x`
 
-
 ## Adding it to your project
 
 ```bash
-
-$ npm i vue-interact
-
+npm i vue-interact
 ```
 
 ## Using the plugin
@@ -29,8 +26,8 @@ app.use(VueInteract, {
 
 ```ts
 export interface IVueInteractOptions {
-  installInject?: boolean;
-  installGlobalProperty?: boolean;
+    installInject?: boolean;
+    installGlobalProperty?: boolean;
 }
 ```
 
@@ -42,10 +39,4 @@ Both instances are merely the default InteractJS instance.
 
 > Check the documentation for the InteractJS instance [here](https://interactjs.io/docs/interactjs/).
 
-### Composables
-
-```ts
-import { useDraggable } from 'vue-interact';
-```
-
-> Check the documentation for composables [here](/guide/composables/use_draggable.md)
+> Check the documentation for composables [here](/guide/composables/use_draggable.html)

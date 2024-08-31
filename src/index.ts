@@ -1,14 +1,15 @@
-import { App, Plugin } from 'vue';
+import type { App, Plugin } from 'vue';
 import interact from 'interactjs';
-import useDraggable from "./composables/useDraggable";
-import useResizable from "./composables/useResizable";
+import useInteractContext from './composables/useInteractContext';
+import useDraggable from './composables/useDraggable';
+import useResizable from './composables/useResizable';
 
 export interface IVueInteractOptions {
   installInject?: boolean;
   installGlobalProperty?: boolean;
 }
 
-export const VueInteract : Plugin = {
+const VueInteract: Plugin = {
   install: (app: App, options: IVueInteractOptions = {
     installInject: true,
     installGlobalProperty: true,
@@ -21,10 +22,10 @@ export const VueInteract : Plugin = {
     }
 
     if (options.installGlobalProperty) {
-        app.config.globalProperties.$interact = interact;
+      app.config.globalProperties.$interact = interact;
     }
   },
 };
 
-export { useDraggable, useResizable };
+export { useInteractContext, useDraggable, useResizable };
 export default VueInteract;
