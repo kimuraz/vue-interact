@@ -1,20 +1,18 @@
 import interact from "interactjs";
 import Interact from "@interactjs/types/index";
 
-import {computed, ref} from "vue";
+import { computed, ref, watch, onMounted } from "vue";
 import { DraggableOptions } from '@interactjs/actions/drag/plugin';
+import type { InteractContext } from "./useInteractContext";
 
 export interface IPosition {
-    x: number;
-    y: number;
+  x: number;
+  y: number;
 }
-const useDraggable = (el: HTMLElement, interactOptions: DraggableOptions) => {
-  if (!el) {
-    throw new Error('useDraggable requires an element to interact with');
-  }
-  const elRef = ref<HTMLElement>(el);
+const useDraggable = (context: InteractContext, interactOptions: DraggableOptions = {}) => {
   const isDragging = ref<boolean>(false);
-  const position = ref<IPosition>({ x: 0, y: 0 });
+  const position = context.position;
+
   const draggableOptions = computed<DraggableOptions>({
     get: () => ({
       listeners: {
@@ -26,38 +24,35 @@ const useDraggable = (el: HTMLElement, interactOptions: DraggableOptions) => {
     }),
     set: (value) => {
       interactOptions = value;
-      draggable.set(value);
+      context.interactable.value?.set(value);
     }
   });
 
   const onDragStart = (event: Interact.DragEvent) => {
     isDragging.value = true;
-    position.value = {
-      x: event.pageX,
-      y: event.pageY,
-    };
   }
 
-    const onDragMove = (event: Interact.DragEvent) => {
-      position.value = {
-        x: event.dx,
-        y: event.dy,
-      };
-      elRef.value.style.transform = `translate(${position.value.x}px, ${position.value.y}px)`;
+  const onDragMove = (event: Interact.DragEvent) => {
+    position.value = {
+      x: position.value.x + event.dx,
+      y: position.value.y + event.dy,
     };
+  };
 
-    const onDragEnd = (event: Interact.DragEvent) => {
-      isDragging.value = false;
-      position.value = {
-          x: event.dx,
-          y: event.dy,
-      }
-    };
+  const onDragEnd = (event: Interact.DragEvent) => {
+    isDragging.value = false;
+  };
 
-  const draggable = interact(elRef.value).draggable(draggableOptions.value);
+  const init = () => {
+    if (!context.interactable.value) {
+      throw new Error('Interactable context is not set');
+    }
+    context.interactable.value.draggable(draggableOptions.value);
+  };
+
 
   return {
-    elRef,
+    init,
     position,
     draggableOptions,
     isDragging,

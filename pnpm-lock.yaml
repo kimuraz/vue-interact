@@ -8,12 +8,12 @@ importers:
 
   .:
     dependencies:
+      docs:
+        specifier: 0.3.2-canary.0
+        version: 0.3.2-canary.0
       interactjs:
         specifier: ^1.10.27
         version: 1.10.27
-      vue:
-        specifier: ^3
-        version: 3.4.38(typescript@5.5.4)
     devDependencies:
       '@interactjs/types':
         specifier: ^1.10.27
@@ -39,6 +39,9 @@ importers:
       '@vuepress/plugin-container':
         specifier: 2.0.0-rc.28
         version: 2.0.0-rc.28(vuepress@2.0.0-rc.15(@vuepress/bundler-vite@2.0.0-rc.15(@types/node@22.4.0)(jiti@1.21.6)(lightningcss@1.26.0)(sass@1.77.8)(stylus@0.54.8)(terser@5.31.6)(typescript@5.5.4)(yaml@2.5.0))(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))
+      '@vuepress/plugin-register-components':
+        specifier: 2.0.0-rc.37
+        version: 2.0.0-rc.37(vuepress@2.0.0-rc.15(@vuepress/bundler-vite@2.0.0-rc.15(@types/node@22.4.0)(jiti@1.21.6)(lightningcss@1.26.0)(sass@1.77.8)(stylus@0.54.8)(terser@5.31.6)(typescript@5.5.4)(yaml@2.5.0))(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))
       '@vuepress/theme-default':
         specifier: 2.0.0-rc.41
         version: 2.0.0-rc.41(typescript@5.5.4)(vuepress@2.0.0-rc.15(@vuepress/bundler-vite@2.0.0-rc.15(@types/node@22.4.0)(jiti@1.21.6)(lightningcss@1.26.0)(sass@1.77.8)(stylus@0.54.8)(terser@5.31.6)(typescript@5.5.4)(yaml@2.5.0))(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))
@@ -78,6 +81,12 @@ importers:
       vite-plugin-dts:
         specifier: ^4.0.3
         version: 4.0.3(@types/node@22.4.0)(rollup@4.20.0)(typescript@5.5.4)(vite@5.4.1(@types/node@22.4.0)(lightningcss@1.26.0)(sass@1.77.8)(stylus@0.54.8)(terser@5.31.6))
+      vue:
+        specifier: ^3.4.38
+        version: 3.4.38(typescript@5.5.4)
+      vue-interact:
+        specifier: 'link:'
+        version: 'link:'
       vuepress:
         specifier: 2.0.0-rc.15
         version: 2.0.0-rc.15(@vuepress/bundler-vite@2.0.0-rc.15(@types/node@22.4.0)(jiti@1.21.6)(lightningcss@1.26.0)(sass@1.77.8)(stylus@0.54.8)(terser@5.31.6)(typescript@5.5.4)(yaml@2.5.0))(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4))
@@ -2418,6 +2427,10 @@ packages:
   dns-packet@5.6.1:
     resolution: {integrity: sha512-l4gcSouhcgIKRvyy99RNVOgxXiicE+2jZoNmaNmZ6JXiGajBOJAesk1OBlJuM5k2c+eudGdLxDqXuPCKIj6kpw==}
     engines: {node: '>=6'}
+
+  docs@0.3.2-canary.0:
+    resolution: {integrity: sha512-jkGIXsVKFcs8SXpqJuIPZJvwAuHqNwlatDSFLhMXLQDqsvQp+IK7JAdbdJvrypJrdXUnWJTntur3s4qfh6JQCQ==}
+    hasBin: true
 
   doctrine@3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
@@ -8298,6 +8311,8 @@ snapshots:
   dns-packet@5.6.1:
     dependencies:
       '@leichtgewicht/ip-codec': 2.0.5
+
+  docs@0.3.2-canary.0: {}
 
   doctrine@3.0.0:
     dependencies:

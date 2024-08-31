@@ -1,7 +1,7 @@
 {
   "name": "vue-interact",
   "description": "Interact.js wrapper for VueJS",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Kimura <joseduardo.kimura@gmail.com>",
   "private": false,
   "main": "dist/vue-interact.umd.cjs",
@@ -25,6 +25,7 @@
     "test:ci": "jest --ci --coverage"
   },
   "dependencies": {
+    "docs": "0.3.2-canary.0",
     "interactjs": "^1.10.27"
   },
   "peerDependencies": {
@@ -40,6 +41,7 @@
     "@vitejs/plugin-vue": "^5.1.2",
     "@vuepress/bundler-vite": "2.0.0-rc.15",
     "@vuepress/plugin-container": "2.0.0-rc.28",
+    "@vuepress/plugin-register-components": "2.0.0-rc.37",
     "@vuepress/theme-default": "2.0.0-rc.41",
     "esbuild": "^0.18.17",
     "eslint": "^8.46.0",
@@ -53,6 +55,8 @@
     "typescript": "^5.1.6",
     "vite": "^5.4.1",
     "vite-plugin-dts": "^4.0.3",
+    "vue": "^3.4.38",
+    "vue-interact": "link:",
     "vuepress": "2.0.0-rc.15",
     "vuepress-theme-reco": "2.0.0-rc.18"
   },
