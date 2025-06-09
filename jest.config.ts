@@ -10,4 +10,7 @@ module.exports = {
     "<rootDir>/node_modules/(?!@foo)"
   ],
   testEnvironment: "jsdom",
+  testMatch: [
+    "**/__tests__/**/*.test.ts",
+  ],
 };
