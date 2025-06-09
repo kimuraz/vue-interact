@@ -12,8 +12,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm run build
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.9.0
+      - run: pnpm ci
+      - run: pnpm run build
 
   publish-npm:
     needs: build
@@ -24,7 +28,11 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.9.0
+      - run: pnpm ci
+      - run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
