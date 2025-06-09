@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   verbose: true,
   clearMocks: true,
   moduleDirectories: ['node_modules'],
