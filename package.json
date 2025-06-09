@@ -25,7 +25,6 @@
     "test:ci": "jest --ci --coverage"
   },
   "dependencies": {
-    "docs": "0.3.2-canary.0",
     "interactjs": "^1.10.27"
   },
   "peerDependencies": {
@@ -56,13 +55,12 @@
     "vite": "^5.4.1",
     "vite-plugin-dts": "^4.0.3",
     "vue": "^3.4.38",
-    "vue-interact": "link:",
     "vuepress": "2.0.0-rc.15",
     "vuepress-theme-reco": "2.0.0-rc.18"
   },
   "engines": {
-    "node": ">= 14.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 20.0.0",
+    "npm": ">= 9.0.0"
   },
   "browserslist": [
     "> 1%",
