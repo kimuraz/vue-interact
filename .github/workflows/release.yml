@@ -5,7 +5,7 @@ on:
     types: [created]
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,10 +19,9 @@ jobs:
       - run: pnpm install
       - run: pnpm lint 
       - run: pnpm test
-      - run: pnpm run build
 
   publish-npm:
-    needs: build
+    needs: ci 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -35,8 +34,7 @@ jobs:
         with:
           version: 9.9.0
       - run: pnpm install
-      - run: pnpm lint 
-      - run: pnpm test
-      - run: pnpm publish
+      - run: pnpm build
+      - run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
