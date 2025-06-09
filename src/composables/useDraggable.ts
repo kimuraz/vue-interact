@@ -24,7 +24,7 @@ const useDraggable = (context: InteractContext, interactOptions: DraggableOption
     }),
     set: (value) => {
       interactOptions = value;
-      context.interactable.value?.set(value);
+      (context.interactable.value as Interact.Interactable).set(value);
     }
   });
 
