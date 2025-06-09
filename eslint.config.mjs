@@ -18,6 +18,15 @@ export default defineConfig([
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
       'arrow-parens': 'off',
       'no-param-reassign': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': 'warn',
+    },
+  },
+  {
+    files: ["**/*.test.ts"],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
     },
   },
   {
