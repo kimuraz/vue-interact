@@ -1,7 +1,6 @@
-import interact from "interactjs";
 import Interact from "@interactjs/types/index";
 
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { ResizableOptions } from '@interactjs/actions/resize/plugin';
 import { InteractContext } from "./useInteractContext";
 
