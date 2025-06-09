@@ -16,7 +16,8 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9.9.0
-      - run: pnpm ci
+      - run: pnpm lint 
+      - run: pnpm test
       - run: pnpm run build
 
   publish-npm:
@@ -32,7 +33,8 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9.9.0
-      - run: pnpm ci
+      - run: pnpm lint 
+      - run: pnpm test
       - run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
