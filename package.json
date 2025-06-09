@@ -47,7 +47,7 @@
     "@vuepress/plugin-container": "2.0.0-rc.28",
     "@vuepress/plugin-register-components": "2.0.0-rc.37",
     "@vuepress/theme-default": "2.0.0-rc.41",
-    "esbuild": "^0.18.17",
+    "esbuild": "^0.25.0",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
