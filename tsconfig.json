@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
+    "target": "esnext",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -15,6 +16,7 @@
   ],
   "exclude": [
     "node_modules",
+    "src/**/*.test.ts",
     "src/__tests__/*.spec.ts",
     "dist/**/*"
   ],

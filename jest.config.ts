@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   verbose: true,
   clearMocks: true,
   moduleDirectories: ['node_modules'],
@@ -10,4 +10,7 @@ module.exports = {
     "<rootDir>/node_modules/(?!@foo)"
   ],
   testEnvironment: "jsdom",
+  testMatch: [
+    "**/__tests__/**/*.test.ts",
+  ],
 };
