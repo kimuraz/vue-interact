@@ -5,7 +5,6 @@
   "author": "Kimura <joseduardo.kimura@gmail.com>",
   "private": false,
   "type": "module",
-  "main": "./dist/vue-interact.js",
   "exports": {
     ".": {
       "import": "./dist/vue-interact.js",
@@ -13,6 +12,9 @@
     }
   },
   "types": "vue-interact.d.ts",
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "vite build",

@@ -11,9 +11,10 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue', 'interactjs'],
       output: {
+        exports: 'named',
         globals: {
           vue: 'Vue',
-          interactjs: 'interact',
+          interactjs: 'interactjs',
         },
         format: 'es',
       },
