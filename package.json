@@ -1,12 +1,11 @@
 {
   "name": "vue-interact",
   "description": "Interact.js wrapper for VueJS",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "Kimura <joseduardo.kimura@gmail.com>",
   "private": false,
-  "main": "dist/vue-interact.umd.cjs",
   "type": "module",
-  "module": "dist/vue-interact.js",
+  "main": "./dist/vue-interact.js",
   "exports": {
     ".": {
       "import": "./dist/vue-interact.js",

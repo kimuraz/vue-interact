@@ -9,14 +9,15 @@ export default defineConfig({
       name: 'VueInteract',
     },
     rollupOptions: {
+      external: ['vue', 'interactjs'],
       output: {
-        exports: "named",
         globals: {
           vue: 'Vue',
+          interactjs: 'interact',
         },
+        format: 'es',
       },
-      external: ['vue'],
-    }
+    },
   },
   plugins: [
     dts({
