@@ -8,3 +8,5 @@ yarn-error.log*
 .temp/
 .cache/
 coverage/
+dist/
+docs/.vuepress/dist/
