@@ -40,13 +40,17 @@ const useInteractContext = (elRef: Ref) => {
 
   watch(() => position.value, (newPosition) => {
     const { x, y } = newPosition;
-    (interactable.value?.target as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
+    if (interactable.value && interactable.value.target) {
+      (interactable.value.target as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
+    }
   }, { deep: true });
 
   watch(() => size.value, (newSizeData) => {
     const { width, height } = newSizeData;
-    (interactable.value?.target as HTMLElement).style.width = `${width}px`;
-    (interactable.value?.target as HTMLElement).style.height = `${height}px`;
+    if (interactable.value && interactable.value.target) {
+      (interactable.value.target as HTMLElement).style.width = `${width}px`;
+      (interactable.value.target as HTMLElement).style.height = `${height}px`;
+    }
   }, { deep: true });
 
   return {
