@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
-import { useInteractContext, useDraggable, useResizable } from 'vue-interact';
+import { useInteractContext, useDraggable, useResizable } from '../../../../src';
 
 const interactableTarget = ref(null);
 
 const context = useInteractContext(interactableTarget);
 const { init, position } = useDraggable(context);
-const { init: initResize, resizeData } = useResizable(context);
+const { init: initResize, resizeData } = useResizable(context, {});
 
 onMounted(() => {
   nextTick(() => {

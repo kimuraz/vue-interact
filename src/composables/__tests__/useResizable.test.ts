@@ -54,6 +54,46 @@ describe('useResizable', () => {
         expect(options.listeners).toBeDefined();
     });
 
+    it('resizableOptions getter should return merged initial options', () => {
+        const initialOpts: ResizableOptions = {
+            inertia: { enabled: true },
+            edges: { left: false, right: true, bottom: false, top: true },
+        };
+        const { init, resizableOptions } = useResizable(context, initialOpts);
+        init();
+
+        const currentOptions = resizableOptions.value;
+        expect(currentOptions.inertia).toEqual(initialOpts.inertia);
+        expect(currentOptions.edges).toEqual(initialOpts.edges);
+        expect(currentOptions.listeners).toBeDefined();
+    });
+
+    it('resizableOptions setter should call interactable.set and update options', () => {
+        const { init, resizableOptions } = useResizable(context, {});
+        const mockResizableInteractable = {
+            set: jest.fn(),
+        };
+        resizableMock.mockReturnValue(mockResizableInteractable);
+
+        init();
+
+        const newSpecificOptions: ResizableOptions = {
+            inertia: { enabled: false },
+            edges: { top: false, bottom: false, left: true, right: true },
+        };
+
+        resizableOptions.value = newSpecificOptions;
+
+        expect(mockResizableInteractable.set).toHaveBeenCalledTimes(1);
+        expect(mockResizableInteractable.set).toHaveBeenCalledWith({
+            resize: expect.objectContaining(newSpecificOptions),
+        });
+        const updatedOptions = resizableOptions.value;
+        expect(updatedOptions.inertia).toEqual(newSpecificOptions.inertia);
+        expect(updatedOptions.edges).toEqual(newSpecificOptions.edges);
+        expect(updatedOptions.listeners).toBeDefined();
+    });
+
     it('should handle resize events correctly', () => {
         const { init, isResizing, position, resizeData } = useResizable(
             context,
@@ -139,7 +179,16 @@ describe('useResizable', () => {
 
         expect(setMock).toHaveBeenCalledTimes(1);
         expect(setMock).toHaveBeenCalledWith(
-            expect.objectContaining(newOptions),
+            expect.objectContaining({
+                resize: {
+                    listeners: expect.objectContaining({
+                        start: expect.any(Function),
+                        move: expect.any(Function),
+                        end: expect.any(Function),
+                    }),
+                    ...newOptions,
+                },
+            }),
         );
     });
 
