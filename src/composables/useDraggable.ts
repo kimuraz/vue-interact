@@ -14,22 +14,8 @@ const useDraggable = (
     interactOptions: DraggableOptions = {},
 ) => {
     const isDragging = ref<boolean>(false);
+    const _interactOptions = ref<DraggableOptions>(interactOptions);
     const position = context.position;
-
-    const draggableOptions = computed<DraggableOptions>({
-        get: () => ({
-            listeners: {
-                start: onDragStart,
-                move: onDragMove,
-                end: onDragEnd,
-            },
-            ...interactOptions,
-        }),
-        set: (value) => {
-            interactOptions = value;
-            (context.interactable.value as Interact.Interactable).set(value);
-        },
-    });
 
     const onDragStart = (event: Interact.DragEvent) => {
         isDragging.value = true;
@@ -45,6 +31,28 @@ const useDraggable = (
     const onDragEnd = (event: Interact.DragEvent) => {
         isDragging.value = false;
     };
+
+    const staticListeners = {
+        start: onDragStart,
+        move: onDragMove,
+        end: onDragEnd,
+    };
+
+    const draggableOptions = computed<DraggableOptions>({
+        get: () => ({
+            listeners: staticListeners,
+            ..._interactOptions.value,
+        }),
+        set: (value) => {
+            _interactOptions.value = value;
+            (context.interactable.value as Interact.Interactable).set({
+                drag: {
+                    listeners: staticListeners,
+                    ..._interactOptions.value,
+                },
+            });
+        },
+    });
 
     const init = () => {
         if (!context.interactable.value) {

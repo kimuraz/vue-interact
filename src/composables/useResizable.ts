@@ -6,27 +6,14 @@ import { InteractContext } from './useInteractContext';
 
 const useResizable = (
     context: InteractContext,
-    interactOptions: ResizableOptions,
+    interactOptions: ResizableOptions = {},
 ) => {
     const isResizing = ref<boolean>(false);
     const position = context.position;
     const resizeData = context.size;
+    const _interactOptions = ref<ResizableOptions>(interactOptions);
+
     let resizable: Interact.Interactable;
-    const resizableOptions = computed<ResizableOptions>({
-        get: () => ({
-            edges: { left: true, right: true, bottom: true, top: true },
-            listeners: {
-                start: onResizeStart,
-                move: onResizeMove,
-                end: onResizeEnd,
-            },
-            ...interactOptions,
-        }),
-        set: (value) => {
-            interactOptions = value;
-            resizable.set(value);
-        },
-    });
 
     const onResizeStart = (event: Interact.ResizeEvent) => {
         isResizing.value = true;
@@ -54,6 +41,36 @@ const useResizable = (
     const onResizeEnd = (event: Interact.ResizeEvent) => {
         isResizing.value = false;
     };
+
+    const staticListeners = {
+        start: onResizeStart,
+        move: onResizeMove,
+        end: onResizeEnd,
+    };
+    const defaultEdges = {
+        left: true,
+        right: true,
+        bottom: true,
+        top: true,
+    };
+
+    const resizableOptions = computed<ResizableOptions>({
+        get: () => ({
+            edges: { ...defaultEdges },
+            listeners: staticListeners,
+            ..._interactOptions.value,
+        }),
+        set: (value) => {
+            _interactOptions.value = value;
+            resizable.set({
+                resize: {
+                    edges: { ...defaultEdges },
+                    listeners: staticListeners,
+                    ..._interactOptions.value,
+                },
+            });
+        },
+    });
 
     const init = () => {
         if (!context.interactable.value) {
