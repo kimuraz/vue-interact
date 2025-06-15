@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
-import { useInteractContext, useResizable } from 'vue-interact';
+import { useInteractContext, useResizable } from '../../../../src';
 
 const interactableTarget = ref(null);
 

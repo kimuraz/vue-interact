@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
-import { useInteractContext, useDraggable } from 'vue-interact';
+import { useInteractContext, useDraggable } from '../../../../src';
 
 const interactableTarget = ref(null);
 
