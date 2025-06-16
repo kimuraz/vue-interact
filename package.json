@@ -11,7 +11,7 @@
       "require": "./dist/vue-interact.umd.cjs"
     }
   },
-  "types": "vue-interact.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
