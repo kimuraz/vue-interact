@@ -7,11 +7,14 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/vue-interact.js",
       "require": "./dist/vue-interact.umd.cjs"
     }
   },
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/vue-interact.js",
+  "main": "./dist/vue-interact.umd.cjs",
   "files": [
     "dist"
   ],
