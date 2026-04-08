@@ -65,7 +65,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6",
     "typescript-eslint": "^8.33.1",
-    "vite": "^5.4.1",
+    "vite": "^6.4.2",
     "vite-plugin-dts": "^4.0.3",
     "vue": "^3.4.38",
     "vuepress": "2.0.0-rc.15",
